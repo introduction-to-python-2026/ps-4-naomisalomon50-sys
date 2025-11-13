@@ -3,4 +3,15 @@ def split_before_each_uppercases(formula):
 
 
 def split_at_first_digit(formula):
-    pass # Replace the `pass` with your code
+  digit_location = 1
+  for char in formula[1:]:
+    if char.isdigit():
+     break
+    digit_location += 1
+
+  if digit_location == len(formula):
+   return formula, 1
+  else:
+    prefix = formula[:digit_location]
+    numbers_part = formula[digit_location:]
+    return prefix, int(numbers_part)
